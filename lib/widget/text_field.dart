@@ -73,6 +73,37 @@ class _TextFieldAppState extends State<TextFieldApp> {
           ),
           ElevatedButton(
               onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text("Berhasil Login"),
+                  action: SnackBarAction(
+                      label: 'cancel',
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: Text('Anda Yakin Gajadi??'),
+                              backgroundColor: Colors.red,
+                              actions: [
+                                ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text('Iya'),
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Colors.blueGrey),
+                                )
+                              ],
+                            );
+                          },
+                        );
+                        print('Tidak jadi login');
+                      }),
+                  behavior: SnackBarBehavior.floating,
+                  margin: EdgeInsets.only(bottom: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(),
+                  ),
+                ));
+
                 print(
                     'Login dengan Email (${emailC.text}) dan password (${passC.text})'); // .text untuk mengambil textnya
               },
