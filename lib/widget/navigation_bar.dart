@@ -69,9 +69,8 @@ class _NavigationBarAppState extends State<NavigationBarApp> {
         unselectedItemColor: Colors.white,
         currentIndex: index,
         onTap: (value) {
-          setState(() {
-            index = value;
-          });
+          index = value;
+          setState(() {});
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
