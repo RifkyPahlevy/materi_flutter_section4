@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_section_4/widget/drawer_app.dart';
 
 //jika ingin membuat Tab Bar harus dibungkus dengan widget DefaultTabController di bagian Scaffold
 // kalo tidak pakai harus menggunakan tab controller manual membuat variable dengan tipe data TabController
@@ -33,7 +34,35 @@ class _TabBarAppState extends State<TabBarApp>
         ]),
       ),
       body: TabBarView(controller: tabC, children: [
-        Center(child: Text('Camera')),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Camera'),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DrawerApp(),
+                        ));
+                      },
+                      child: Text('NextPage>>')),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pop(); // method pop() digunakan untuk kembali ke halaman sebelumnya
+                      },
+                      child: Text("<<Back"))
+                ],
+              )
+            ],
+          ),
+        ),
         Center(child: Text('CHATS')),
         Center(child: Text('STATUS')),
         Center(child: Text('CALLS')),

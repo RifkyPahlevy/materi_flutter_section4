@@ -100,6 +100,12 @@ class DrawerApp extends StatelessWidget {
           ],
         ),
       ),
+      body: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context)
+                .pop(); // method pop() digunakan untuk kembali ke halaman sebelumnya
+          },
+          child: Text("<<Back")),
     );
   }
 }
